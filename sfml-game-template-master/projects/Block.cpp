@@ -11,6 +11,9 @@
 #include "ResourcePath.h"
 
 using namespace sf;
+/*default constructor
+*sets all values to zero and color black
+*/
 Block::Block(){
             _color = sf::Color::Black;
             _xPos = 0;
@@ -22,6 +25,12 @@ Block::Block(){
             _image.setFillColor(_color);
 }
 
+/*custom constructor
+*@param: color of the block
+*@param: x position of the block
+*@param: width of the block
+*@param: bool, wither the block can be walked on
+*/
 Block::Block(Color color, float x, float y, int wid, bool passable){
             _color = color;
             _xPos = x;

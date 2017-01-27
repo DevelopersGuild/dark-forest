@@ -12,7 +12,7 @@
 
 
 
-Map::Map(int col, int row, int block_width) : ROW(row) , COL(col) , BLO_WID(block_width){
+Map::Map(int row, int col, int block_width) : ROW(row) , COL(col) , BLO_WID(block_width){
 
     grid.resize(ROW);
     for (int i = 0; i < ROW; ++i) grid[i].resize(COL);

@@ -9,7 +9,7 @@
 /* Map() 
 * class is in charge of keeping the location of all "Blocks" within the game, 
 * contains a 'grid' which assigns one block to each location of the game
-* currently a 32*20 grid that contains 25 square pixil blocks
+* currently a 32*20 grid that contains 25 square pixil blocks is recomended
 */
 
 //TODO: probably unnecceary to have a struct inside the class
@@ -23,14 +23,22 @@
 using namespace std;
 class Map{       
     public:
+        /* constructor
+        *@param: number of rows in the map
+        *@param: number of columbs in the map
+        *@param: width in pixels of a single block
+        */
         Map(int row, int col, int block_width); // default constructor, resizes grid
         
-        void checker(); // creates a checkerboard pattern on the map, solely for testing
+        /* checker()
+        * creates a checkerboard pattern on the map, solely for testing
+        */
+        void checker();
         
         vector<vector<Block*> > layout(){ return grid; } //returns the map
-        int row(){ return ROW; }
-        int col(){ return COL; }
-        int blo_wid(){ return BLO_WID; }
+        int row(){ return ROW; } //returns the number of rows
+        int col(){ return COL; } // returns the number of columbs
+        int blo_wid(){ return BLO_WID; } // returns the width in pixels of each block
         
     private:
         Block** map; // layout of the map
@@ -38,7 +46,7 @@ class Map{
         const int COL;
         const int BLO_WID; // 25 by 25 size blocks
         
-        vector<vector<Block*> > grid;
+        vector<vector<Block*> > grid; //vector of the grid
 };
 
 #endif /* Map_hpp */

@@ -8,7 +8,7 @@ int main()
 {
     
 	sf::RenderWindow window(sf::VideoMode(800, 500), "SFML Works!");
-    Map map(32, 20, 25);
+    Map map(20, 32, 25);
     map.checker();
     
     Block block(sf::Color::Red, 0,0,25, false);
