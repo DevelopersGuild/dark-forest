@@ -70,9 +70,9 @@
 
 /* Begin PBXFileReference section */
 		55468BCD1E3AB4EC00F5569F /* Block.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Block.cpp; sourceTree = "<group>"; };
-		55468BCE1E3AB4EC00F5569F /* Block.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Block.hpp; sourceTree = "<group>"; };
+		55468BCE1E3AB4EC00F5569F /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Block.h; sourceTree = "<group>"; };
 		55D39E281E32CCDB00F18193 /* Map.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Map.cpp; sourceTree = "<group>"; };
-		55D39E291E32CCDB00F18193 /* Map.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Map.hpp; sourceTree = "<group>"; };
+		55D39E291E32CCDB00F18193 /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
 		5F35EB531BC84F3800FCF070 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../src/main.cpp; sourceTree = SOURCE_ROOT; };
 		5F35EB551BC84F4300FCF070 /* ResourcePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResourcePath.h; path = ../src/ResourcePath.h; sourceTree = SOURCE_ROOT; };
 		5F35EB561BC84F4300FCF070 /* ResourcePathMac.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ResourcePathMac.mm; path = ../src/ResourcePathMac.mm; sourceTree = SOURCE_ROOT; };
@@ -144,9 +144,9 @@
 		5FF4FE8E1BB33EE60079FC4C = {
 			isa = PBXGroup;
 			children = (
-				55468BCE1E3AB4EC00F5569F /* Block.hpp */,
+				55468BCE1E3AB4EC00F5569F /* Block.h */,
 				55468BCD1E3AB4EC00F5569F /* Block.cpp */,
-				55D39E291E32CCDB00F18193 /* Map.hpp */,
+				55D39E291E32CCDB00F18193 /* Map.h */,
 				55D39E281E32CCDB00F18193 /* Map.cpp */,
 				5FC0A39B1C38CB8200BFD80B /* Add new source code files here */,
 				5FF4FE9A1BB33EE60079FC4C /* SampleGame */,

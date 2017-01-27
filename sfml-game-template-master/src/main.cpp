@@ -2,8 +2,8 @@
 #include "ResourcePath.h"
 #include <iostream>
 
-#include "map.hpp"
-#include "Block.hpp"
+#include "map.h"
+#include "Block.h"
 int main()
 {
     

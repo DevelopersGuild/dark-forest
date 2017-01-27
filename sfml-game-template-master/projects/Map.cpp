@@ -6,8 +6,8 @@
 //  Copyright © 2017 De Anza College Developers' Guild. All rights reserved.
 //
 
-#include "Map.hpp"
-#include "Block.hpp"
+#include "Map.h"
+#include "Block.h"
 #include <iostream>
 
 
