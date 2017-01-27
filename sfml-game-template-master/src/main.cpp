@@ -8,10 +8,10 @@ int main()
 {
     
 	sf::RenderWindow window(sf::VideoMode(800, 500), "SFML Works!");
-    Map map;
+    Map map(32, 20, 25);
     map.checker();
     
-    Block block(sf::Color::Red, 0,0,25);
+    Block block(sf::Color::Red, 0,0,25, false);
     
 	while (window.isOpen())
 	{
@@ -24,9 +24,9 @@ int main()
         
 		window.clear();
         
-        for (int i = map.layout().ROW - 1; i >= 0; --i){
-            for (int j = map.layout().COL - 1; j >= 0; --j){
-                window.draw(map.layout().grid[i][j]->image());
+        for (int i = map.row() - 1; i >= 0; --i){
+            for (int j = map.col() - 1; j >= 0; --j){
+                window.draw(map.layout()[i][j]->image());
             }
         }
 		window.display();

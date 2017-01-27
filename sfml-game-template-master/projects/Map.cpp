@@ -12,26 +12,31 @@
 
 
 
+Map::Map(int col, int row, int block_width) : ROW(row) , COL(col) , BLO_WID(block_width){
+
+    grid.resize(ROW);
+    for (int i = 0; i < ROW; ++i) grid[i].resize(COL);
+} 
+
 /*checker()
 * fills the layout with blocks of alternating color, a checker pattern.
 * return: nothing
 */
 void Map::checker(){
     sf::Color color = sf::Color::Green;
+    int col = this->COL;
+    int row = this->ROW;
+    int blo_wid = this->BLO_WID;
     
-    int col = this->map.COL;
-    int row = this->map.ROW;
-    int blo_wid = this->map.BLO_WID;
-    
-    for (int i = row - 1; i >= 0; --i){
-        for (int j = col - 1; j >= 0; --j){
+    for (int i = 0; i < row; ++i){
+        for (int j = 0; j < col; ++j){
         
             if (color == sf::Color::Green){
                 color = sf::Color::Red;
             }
             else color = sf::Color::Green;
             
-            this->map.grid[i][j] = new Block(color, j*blo_wid, i*blo_wid, blo_wid);
+            this->grid[i][j] = new Block(color, j*blo_wid, i*blo_wid, blo_wid, true);
         }
         if (color == sf::Color::Green){
             color = sf::Color::Red;

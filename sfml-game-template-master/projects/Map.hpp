@@ -17,24 +17,28 @@
 #define Map_hpp
 
 #include <stdio.h>
-
+#include <vector>
 #include "Block.hpp"
 
+using namespace std;
 class Map{       
     public:
-        struct _layout{
-            const static int ROW = 20;
-            const static int COL = 32;
-            const static int BLO_WID = 25; // 25 by 25 size blocks
-            Block* grid[ROW][COL];
-        };
+        Map(int row, int col, int block_width); // default constructor, resizes grid
         
         void checker(); // creates a checkerboard pattern on the map, solely for testing
         
-        _layout layout(){ return map; } //returns the map
+        vector<vector<Block*> > layout(){ return grid; } //returns the map
+        int row(){ return ROW; }
+        int col(){ return COL; }
+        int blo_wid(){ return BLO_WID; }
         
     private:
-        _layout map; // layout of the map
+        Block** map; // layout of the map
+        const int ROW;
+        const int COL;
+        const int BLO_WID; // 25 by 25 size blocks
+        
+        vector<vector<Block*> > grid;
 };
 
 #endif /* Map_hpp */
