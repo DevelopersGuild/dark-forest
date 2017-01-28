@@ -6,7 +6,7 @@
 //  Copyright © 2017 De Anza College Developers' Guild. All rights reserved.
 //
 
-#include "Block.hpp"
+#include "Block.h"
 #include <SFML/Graphics.hpp>
 #include "ResourcePath.h"
 
