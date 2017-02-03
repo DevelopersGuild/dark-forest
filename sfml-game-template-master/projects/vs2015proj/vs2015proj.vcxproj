@@ -145,13 +145,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\Block.cpp" />
     <ClCompile Include="..\..\src\main.cpp" />
+    <ClCompile Include="..\..\src\Map.cpp" />
     <ClCompile Include="..\..\src\Overlap.cpp" />
     <ClCompile Include="..\..\src\ResourcePathWindows.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\Block.h" />
+    <ClInclude Include="..\..\src\Map.h" />
     <ClInclude Include="..\..\src\Overlap.h" />
     <ClInclude Include="..\..\src\ResourcePath.h" />
+    <ClInclude Include="..\..\src\test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
