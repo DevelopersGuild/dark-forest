@@ -12,7 +12,6 @@
 * currently a 32*20 grid that contains 25 square pixil blocks is recomended
 */
 
-//TODO: probably unnecceary to have a struct inside the class
 #ifndef Map_hpp
 #define Map_hpp
 
