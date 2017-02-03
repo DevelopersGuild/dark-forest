@@ -4,6 +4,8 @@
 
 #include "map.h"
 #include "Block.h"
+#include "IntroDialogue.h"
+
 int main()
 {
     
