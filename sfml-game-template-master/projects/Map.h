@@ -29,8 +29,9 @@ class Map{
         */
         Map(int row, int col, int block_width); // default constructor, resizes grid
         
+        
         /* checker()
-        * creates a checkerboard pattern on the map, solely for testing
+        * creates a check pattern on the map, solely for testing
         */
         void checker();
         
