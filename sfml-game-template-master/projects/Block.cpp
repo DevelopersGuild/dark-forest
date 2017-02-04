@@ -14,6 +14,7 @@ using namespace sf;
 /*default constructor
 *sets all values to zero and color black
 */
+
 Block::Block(){
             _xPos = 0;
             _yPos = 0;
@@ -33,12 +34,14 @@ Block::Block(){
 *@param: width of the block
 *@param: bool, wither the block can be walked on
 */
-Block::Block(Texture* texture, float x, float y, int wid, bool passable){
-            _xPos = x;
-            _yPos = y;
-            _width = wid;
-            _texture = texture;
-            _sprite = new Sprite(*texture);
-            
-            _sprite->setPosition(x, y);
-        }
+
+Block::Block(Texture* texture, float x, float y, int wid, bool passable) {
+     _xPos = x;
+     _yPos = y;
+     _width = wid;
+     _texture = texture;
+     _sprite = new Sprite(*texture);
+
+     _sprite->setPosition(x, y);
+}
+
