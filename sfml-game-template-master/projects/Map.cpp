@@ -10,16 +10,15 @@
 #include "Block.h"
 #include <iostream>
 
-
+using namespace sf;
 
 Map::Map(int row, int col, int block_width) : ROW(row) , COL(col) , BLO_WID(block_width){
-
     grid.resize(ROW);
     for (int i = 0; i < ROW; ++i) grid[i].resize(COL);
 } 
 
 /*checker()
-* fills the layout with blocks of alternating color, a checker pattern.
+* fills the map with ground texture
 * return: nothing
 */
 void Map::checker(){
@@ -58,4 +57,5 @@ void Map::checker(){
                if (testmap[i][j] == 1) grid[i][j] = new Block(treeTexture, j*BLO_WID, i*BLO_WID, BLO_WID, false);
           }
      }
+
 }

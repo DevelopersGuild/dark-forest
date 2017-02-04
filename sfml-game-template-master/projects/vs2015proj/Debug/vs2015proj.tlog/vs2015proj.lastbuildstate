@@ -1,2 +1,6 @@
 #TargetFrameworkVersion=v4.0:PlatformToolSet=v140:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=8.1
+<<<<<<< HEAD
 Debug|Win32|C:\Users\Ye-Eun\Desktop\Forked\dark-forest\sfml-game-template-master\projects\vs2015proj\|
+=======
+Debug|Win32|C:\Users\Ye-Eun\Desktop\dark-forest-master\sfml-game-template-master\projects\vs2015proj\|
+>>>>>>> refs/remotes/DevelopersGuild/master

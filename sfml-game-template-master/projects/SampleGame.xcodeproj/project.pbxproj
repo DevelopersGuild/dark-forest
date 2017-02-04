@@ -146,8 +146,8 @@
 			children = (
 				55468BCE1E3AB4EC00F5569F /* Block.h */,
 				55468BCD1E3AB4EC00F5569F /* Block.cpp */,
-				55D39E291E32CCDB00F18193 /* Map.h */,
 				55D39E281E32CCDB00F18193 /* Map.cpp */,
+				55D39E291E32CCDB00F18193 /* Map.h */,
 				5FC0A39B1C38CB8200BFD80B /* Add new source code files here */,
 				5FF4FE9A1BB33EE60079FC4C /* SampleGame */,
 				5FF4FE991BB33EE60079FC4C /* Products */,

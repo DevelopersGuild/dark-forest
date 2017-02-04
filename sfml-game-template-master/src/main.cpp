@@ -13,6 +13,7 @@ int main()
      map.checker();
      while (window.isOpen())
      {
+          //all the move statements should be in the class not here! 
           sf::Event event;
           while (window.pollEvent(event))
           {

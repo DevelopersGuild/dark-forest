@@ -54,6 +54,6 @@ class Block{
          int _xPos; // the x position of the block within the grid
          int _yPos; // the y pos of the block within the grid
          int _width; // the pixle width and height of the block
-    
+
 };
 #endif /* Block_hpp */
