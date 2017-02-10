@@ -10,37 +10,52 @@
 #include "Block.h"
 #include <iostream>
 
-
+using namespace sf;
 
 Map::Map(int row, int col, int block_width) : ROW(row) , COL(col) , BLO_WID(block_width){
-
     grid.resize(ROW);
     for (int i = 0; i < ROW; ++i) grid[i].resize(COL);
 } 
 
 /*checker()
-* fills the layout with blocks of alternating color, a checker pattern.
+* fills the map with ground texture
 * return: nothing
 */
 void Map::checker(){
-    sf::Color color = sf::Color::Green;
-    int col = this->COL;
-    int row = this->ROW;
-    int blo_wid = this->BLO_WID;
-    
-    for (int i = 0; i < row; ++i){
-        for (int j = 0; j < col; ++j){
-        
-            if (color == sf::Color::Green){
-                color = sf::Color::Red;
-            }
-            else color = sf::Color::Green;
-            
-            this->grid[i][j] = new Block(color, j*blo_wid, i*blo_wid, blo_wid, true);
-        }
-        if (color == sf::Color::Green){
-            color = sf::Color::Red;
-        }
-        else color = sf::Color::Green;
-    }
+     int testmap[20][25] = {
+          { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+          { 0,1,1,1,1,1,1,1,1,0,0,0,0,1,0,0,0,0,1,0,1,1,1,1,0 },
+          { 0,1,1,1,1,1,1,1,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0 },
+          { 0,1,1,1,1,1,1,1,1,0,0,0,0,1,0,0,0,0,1,0,0,1,0,0,0 },
+          { 0,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,0,1,1,1,0,0,1,0 },
+          { 0,1,1,1,1,1,1,1,1,0,0,0,0,1,0,0,0,0,1,1,0,0,1,1,0 },
+          { 0,1,1,1,1,1,1,1,1,0,0,0,0,1,0,0,0,0,1,0,0,1,1,1,0 },
+          { 0,1,1,1,1,1,1,1,1,0,0,0,0,1,0,0,0,0,1,0,1,1,1,1,0 },
+          { 0,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,0 },
+          { 0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0 },
+          { 0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0 },
+          { 0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0 },
+          { 0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0 },
+          { 0,0,1,1,0,1,0,1,0,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,0 },
+          { 0,1,0,0,0,1,0,1,0,1,0,1,0,1,0,1,0,1,1,0,1,1,1,1,0 },
+          { 0,1,0,1,0,1,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+          { 0,1,0,1,0,1,0,1,0,1,1,0,1,0,1,0,1,0,1,0,1,1,1,1,0 },
+          { 0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 },
+          { 0,1,0,1,1,1,1,1,0,1,0,1,0,1,0,1,0,1,0,1,1,1,1,1,0 },
+          { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 }
+     };
+
+     Texture* groundTexture = new Texture;
+     groundTexture->loadFromFile(resourcePath() + "assets/ground.jpg");
+
+     Texture* treeTexture = new Texture;
+     treeTexture->loadFromFile(resourcePath() + "assets/tree.jpg");
+
+     for (int i = 0; i < ROW; ++i) {
+          for (int j = 0; j < COL; ++j) {
+               if (testmap[i][j] == 0) grid[i][j] = new Block(groundTexture, j*BLO_WID, i*BLO_WID, BLO_WID, true);
+               if (testmap[i][j] == 1) grid[i][j] = new Block(treeTexture, j*BLO_WID, i*BLO_WID, BLO_WID, false);
+          }
+     }
+
 }
