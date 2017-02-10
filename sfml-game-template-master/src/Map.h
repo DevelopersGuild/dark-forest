@@ -12,7 +12,6 @@
 * currently a 32*20 grid that contains 25 square pixil blocks is recomended
 */
 
-//TODO: probably unnecceary to have a struct inside the class
 #ifndef Map_hpp
 #define Map_hpp
 
@@ -30,8 +29,9 @@ class Map{
         */
         Map(int row, int col, int block_width); // default constructor, resizes grid
         
+        
         /* checker()
-        * creates a checkerboard pattern on the map, solely for testing
+        * creates a check pattern on the map, solely for testing
         */
         void checker();
         

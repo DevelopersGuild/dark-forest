@@ -145,20 +145,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Block.cpp" />
-    <ClCompile Include="..\..\src\IntroDialogue.cpp" />
-    <ClCompile Include="..\..\src\main.cpp" />
-    <ClCompile Include="..\..\src\Map.cpp" />
-    <ClCompile Include="..\..\src\Overlap.cpp" />
-    <ClCompile Include="..\..\src\ResourcePathWindows.cpp" />
+    <ClCompile Include="..\Block.cpp" />
+    <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\Map.cpp" />
+    <ClCompile Include="..\Overlap.cpp" />
+    <ClCompile Include="..\ResourcePathWindows.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\Block.h" />
-    <ClInclude Include="..\..\src\IntroDialogue.h" />
-    <ClInclude Include="..\..\src\Map.h" />
-    <ClInclude Include="..\..\src\Overlap.h" />
-    <ClInclude Include="..\..\src\ResourcePath.h" />
-    <ClInclude Include="..\..\src\test.h" />
+    <ClInclude Include="..\Block.h" />
+    <ClInclude Include="..\IntroDialogue.h" />
+    <ClInclude Include="..\Map.h" />
+    <ClInclude Include="..\Overlap.h" />
+    <ClInclude Include="..\Player.h" />
+    <ClInclude Include="..\ResourcePath.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
