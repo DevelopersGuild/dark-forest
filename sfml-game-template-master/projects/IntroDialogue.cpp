@@ -3,6 +3,9 @@
 
 IntroDialogue::IntroDialogue()
 {
+     texture.loadFromFile(resourcePath() + "assets/sky.jpg");
+     campfireS.setTexture(texture);
+     campfireS.setScale(1.6, 2.0);
      txt.open(resourcePath() + "assets/StartDia.txt");
      font.loadFromFile(resourcePath() + "assets/BASKVILL.TTF");
      text1.setFont(font);
@@ -42,7 +45,7 @@ void IntroDialogue::readDialogue(sf::RenderWindow &window)
           }
      }
      
-     printDialogue(window, text1, text2);
+     printDialogue(window);
 
      wasPressed = isPressed;
 
@@ -51,9 +54,10 @@ void IntroDialogue::readDialogue(sf::RenderWindow &window)
           isPressed = false;
      }
 }
-void IntroDialogue::printDialogue(sf::RenderWindow &window, sf::Text text1, sf::Text text2)
+void IntroDialogue::printDialogue(sf::RenderWindow &window)
 {
      window.clear();
+     window.draw(campfireS);
      window.draw(text1);
      window.draw(text2);
      window.display();
