@@ -10,6 +10,8 @@
 class IntroDialogue
 {
 private:
+     sf::Texture texture;
+     sf::Sprite campfireS;
      std::ifstream txt; //gets the file
      std::string dialogue1 = ""; //gets the line from the inputfile
      sf::Font font; //font for the text
@@ -23,7 +25,7 @@ private:
 public:
      IntroDialogue(); //constructor 
      void readDialogue(sf::RenderWindow &window); //opens the folder and starts reading 
-     void printDialogue(sf::RenderWindow &window, sf::Text text1, sf::Text text2); //draws the text
+     void printDialogue(sf::RenderWindow &window); //draws the text
      bool endDia = false; //flag for end of the dialogue
 
 };
