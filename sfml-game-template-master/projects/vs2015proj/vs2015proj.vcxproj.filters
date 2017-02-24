@@ -7,6 +7,7 @@
     <ClCompile Include="..\Overlap.cpp" />
     <ClCompile Include="..\ResourcePathWindows.cpp" />
     <ClCompile Include="..\IntroDialogue.cpp" />
+    <ClCompile Include="..\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Block.h" />

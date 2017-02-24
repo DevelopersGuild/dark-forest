@@ -5,10 +5,11 @@
 #include "IntroDialogue.h"
 #include "map.h"
 #include "Block.h"
+#include "Player.h"
 enum typeName { MAIN, HOW_TO, INTRO_DIALOGUE, PLAY, GAME_OVER, CREDIT } gameState;
 
 void Dialogue1(sf::RenderWindow &window, IntroDialogue &introDia, typeName &gameState);
-void PlayMode(sf::RenderWindow &window, Map map);
+void PlayMode(sf::RenderWindow &window, Map map, MainPlayer mainplayer);
 
 int main()
 {
@@ -18,7 +19,7 @@ int main()
      IntroDialogue introDia;
      Map map(20, 25, 32);
      gameState = INTRO_DIALOGUE;
-     
+     MainPlayer mainplayer;
      while (window.isOpen())
      {
           window.clear();
@@ -38,7 +39,7 @@ int main()
                Dialogue1(window, introDia, gameState);
                break;
           case PLAY:
-               PlayMode(window, map);
+               PlayMode(window, map, mainplayer);
                break;
           //case CREDIT: break;
 
@@ -61,9 +62,10 @@ void Dialogue1(sf::RenderWindow &window, IntroDialogue &introDia, typeName &game
           }
      }
 }
-void PlayMode(sf::RenderWindow &window, Map map)
+void PlayMode(sf::RenderWindow &window, Map map, MainPlayer mainplayer)
 {
      map.checker();
+     //mainplayer.MovePlayer(//get the col, row and the boolean for the Block position);
     // while (window.isOpen() && gameState == PLAY)
     //{
           window.clear();
@@ -77,5 +79,6 @@ void PlayMode(sf::RenderWindow &window, Map map)
           //if(gameover)
           //gameState = GAME_OVER;
     // }
+          mainplayer.draw(window);
      window.display();
 }
