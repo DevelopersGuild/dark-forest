@@ -146,9 +146,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\Block.cpp" />
+    <ClCompile Include="..\IntroDialogue.cpp" />
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\Map.cpp" />
     <ClCompile Include="..\Overlap.cpp" />
+    <ClCompile Include="..\Player.cpp" />
     <ClCompile Include="..\ResourcePathWindows.cpp" />
   </ItemGroup>
   <ItemGroup>
