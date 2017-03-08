@@ -40,6 +40,7 @@ Block::Block(Texture* texture, float x, float y, int wid, bool passable) {
      _yPos = y;
      _width = wid;
      _texture = texture;
+     _passable = passable;
      _sprite = new Sprite(*texture);
 
      _sprite->setPosition(x, y);

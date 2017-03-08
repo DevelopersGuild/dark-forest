@@ -8,8 +8,9 @@
 #include "Player.h"
 enum typeName { MAIN, HOW_TO, INTRO_DIALOGUE, PLAY, GAME_OVER, CREDIT } gameState;
 
-void Dialogue1(sf::RenderWindow &window, IntroDialogue &introDia, typeName &gameState);
-void PlayMode(sf::RenderWindow &window, Map map, MainPlayer mainplayer);
+void eventFun(sf::RenderWindow &window, sf::Event &event);
+void Dialogue1(sf::RenderWindow &window, sf::Event &event, IntroDialogue &introDia, typeName &gameState);
+void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer mainplayer, vector<vector<Block*>> block);
 
 int main()
 {
@@ -18,29 +19,29 @@ int main()
      window.setVerticalSyncEnabled(true);
      IntroDialogue introDia;
      Map map(20, 25, 32);
-     gameState = INTRO_DIALOGUE;
+     map.checker();
+     vector<vector<Block*>> block = map.layout();
      MainPlayer mainplayer;
+     
+     gameState = INTRO_DIALOGUE;
+
      while (window.isOpen())
      {
           window.clear();
           //all the move statements should be in the class not here! 
           sf::Event event;
-          while (window.pollEvent(event))
-          {
-               if (event.type == sf::Event::Closed)
-                    window.close();
-          }
-
+          eventFun(window, event);
           switch (gameState)
           {
           //case MAIN: break;
           //case HOW_TO: break;
           case INTRO_DIALOGUE:
-               Dialogue1(window, introDia, gameState);
+               Dialogue1(window, event, introDia, gameState);
                break;
           case PLAY:
-               PlayMode(window, map, mainplayer);
+               PlayMode(window, event, map, mainplayer, block);
                break;
+          //case GAME_OVER: break;
           //case CREDIT: break;
 
           }
@@ -50,11 +51,19 @@ int main()
      return 0;
 }
 
-
-void Dialogue1(sf::RenderWindow &window, IntroDialogue &introDia, typeName &gameState)
+void eventFun(sf::RenderWindow &window, sf::Event &event)
 {
-      while (window.isOpen() && gameState == INTRO_DIALOGUE)
+     while (window.pollEvent(event))
      {
+          if (event.type == sf::Event::Closed)
+               window.close();
+     }
+}
+void Dialogue1(sf::RenderWindow &window, sf::Event &event, IntroDialogue &introDia, typeName &gameState)
+{
+     while (gameState == INTRO_DIALOGUE)
+     {
+          eventFun(window, event);
           introDia.readDialogue(window);
           if (introDia.endDia)
           {
@@ -62,13 +71,14 @@ void Dialogue1(sf::RenderWindow &window, IntroDialogue &introDia, typeName &game
           }
      }
 }
-void PlayMode(sf::RenderWindow &window, Map map, MainPlayer mainplayer)
+void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer mainplayer, vector<vector<Block*>> block)
 {
-     map.checker();
-     //mainplayer.MovePlayer(//get the col, row and the boolean for the Block position);
-    // while (window.isOpen() && gameState == PLAY)
-    //{
+     while (gameState == PLAY)
+     {
+          eventFun(window, event);
           window.clear();
+          mainplayer.MovePlayer(block);
+          
           for (int i = map.row() - 1; i >= 0; --i)
           {
                for (int j = map.col() - 1; j >= 0; --j)
@@ -76,9 +86,11 @@ void PlayMode(sf::RenderWindow &window, Map map, MainPlayer mainplayer)
                     window.draw(map.layout()[i][j]->sprite());
                }
           }
-          //if(gameover)
-          //gameState = GAME_OVER;
-    // }
+          std::cout << mainplayer.isMove() << std::endl;
+          if(!mainplayer.isLive())
+               gameState = GAME_OVER;
+
           mainplayer.draw(window);
-     window.display();
+          window.display();
+     }
 }

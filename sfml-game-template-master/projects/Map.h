@@ -17,6 +17,7 @@
 
 #include <stdio.h>
 #include <vector>
+#include <iostream>
 #include "Block.h"
 
 using namespace std;
@@ -39,7 +40,7 @@ class Map{
         int row(){ return ROW; } //returns the number of rows
         int col(){ return COL; } // returns the number of columbs
         int blo_wid(){ return BLO_WID; } // returns the width in pixels of each block
-        
+      
     private:
         Block** map; // layout of the map
         const int ROW;
