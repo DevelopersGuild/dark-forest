@@ -1,3 +1,11 @@
+﻿//
+//  Player.hpp
+//  SampleGame
+//
+//  Created by Deepti 1/27/2017
+//  Edited by Ye Eun Myung on 03/03/2017
+//  Copyright © 2017 De Anza College Developers' Guild. All rights reserved.
+//
 #ifndef Player_hpp
 #define Player_hpp
 
@@ -25,8 +33,8 @@ public:
      void MovePlayer(std::vector<std::vector<Block*>> block);
      //return true if the main character moved
      bool isMove(){ return move; }
-     void draw(sf::RenderWindow &window) { window.draw(mainCh); }
      bool isLive() { return live; }
+     void draw(sf::RenderWindow &window) { window.draw(mainCh); }
       
 };
 #endif

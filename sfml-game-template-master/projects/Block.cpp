@@ -3,14 +3,12 @@
 //  SampleGame
 //
 //  Created by Margaret Patrick on 1/26/17.
+//  Edited by Ye Eun Myung on 03/08/2017
 //  Copyright © 2017 De Anza College Developers' Guild. All rights reserved.
 //
 
 #include "Block.h"
-#include <SFML/Graphics.hpp>
-#include "ResourcePath.h"
 
-using namespace sf;
 /*default constructor
 *sets all values to zero and color black
 */
@@ -35,13 +33,13 @@ Block::Block(){
 *@param: bool, wither the block can be walked on
 */
 
-Block::Block(Texture* texture, float x, float y, int wid, bool passable) {
+Block::Block(sf::Texture* texture, float x, float y, int wid, bool passable) {
      _xPos = x;
      _yPos = y;
      _width = wid;
      _texture = texture;
      _passable = passable;
-     _sprite = new Sprite(*texture);
+     _sprite = new sf::Sprite(*texture);
 
      _sprite->setPosition(x, y);
 }
