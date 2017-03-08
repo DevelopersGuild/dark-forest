@@ -53,8 +53,15 @@ void Map::checker(){
 
      for (int i = 0; i < ROW; ++i) {
           for (int j = 0; j < COL; ++j) {
-               if (testmap[i][j] == 0) grid[i][j] = new Block(groundTexture, j*BLO_WID, i*BLO_WID, BLO_WID, true);
-               if (testmap[i][j] == 1) grid[i][j] = new Block(treeTexture, j*BLO_WID, i*BLO_WID, BLO_WID, false);
+               if (testmap[i][j] == 0)
+               {
+                    grid[i][j] = new Block(groundTexture, j*BLO_WID, i*BLO_WID, BLO_WID, true);
+               }
+               if (testmap[i][j] == 1)
+               {
+                    grid[i][j] = new Block(treeTexture, j*BLO_WID, i*BLO_WID, BLO_WID, false);
+
+               }
           }
      }
 
