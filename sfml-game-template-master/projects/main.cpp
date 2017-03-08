@@ -10,17 +10,18 @@ enum typeName { MAIN, HOW_TO, INTRO_DIALOGUE, PLAY, GAME_OVER, CREDIT } gameStat
 
 void eventFun(sf::RenderWindow &window, sf::Event &event);
 void Dialogue1(sf::RenderWindow &window, sf::Event &event, IntroDialogue &introDia, typeName &gameState);
-void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer mainplayer, vector<vector<Block*>> block);
+void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer mainplayer, std::vector<std::vector<Block*>> block);
 
 int main()
 {
     
      sf::RenderWindow window(sf::VideoMode(800, 640), "SFML Works!");
-     window.setVerticalSyncEnabled(true);
+     //window.setVerticalSyncEnabled(true); // On WinPC this is good speed but too fast on Mac OS
+     window.setFramerateLimit(30); 
      IntroDialogue introDia;
      Map map(20, 25, 32);
      map.checker();
-     vector<vector<Block*>> block = map.layout();
+     std::vector<std::vector<Block*>> block = map.layout();
      MainPlayer mainplayer;
      
      gameState = INTRO_DIALOGUE;
@@ -71,7 +72,7 @@ void Dialogue1(sf::RenderWindow &window, sf::Event &event, IntroDialogue &introD
           }
      }
 }
-void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer mainplayer, vector<vector<Block*>> block)
+void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer mainplayer, std::vector<std::vector<Block*>> block)
 {
      while (gameState == PLAY)
      {

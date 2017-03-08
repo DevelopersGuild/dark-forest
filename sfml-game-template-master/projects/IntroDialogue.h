@@ -1,4 +1,10 @@
-
+﻿//
+//  IntroDialogue.hspp
+//  SampleGame
+//
+//  Created by Ye Eun Myung on 2/10/2017
+//  Copyright © 2017 De Anza College Developers' Guild. All rights reserved.
+//
 #ifndef IntroDialogue_hpp
 #define IntroDialogue_hpp
 #include <SFML/Graphics.hpp>

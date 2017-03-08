@@ -3,6 +3,7 @@
 //  SampleGame
 //
 //  Created by Margaret Patrick on 1/20/17.
+//  Edited by Ye Eun Myung on 3/8/2017
 //  Copyright © 2017 De Anza College Developers' Guild. All rights reserved.
 //
 
@@ -20,7 +21,6 @@
 #include <iostream>
 #include "Block.h"
 
-using namespace std;
 class Map{       
     public:
         /* constructor
@@ -36,7 +36,7 @@ class Map{
         */
         void checker();
         
-        vector<vector<Block*> > layout(){ return grid; } //returns the map
+        std::vector<std::vector<Block*> > layout(){ return grid; } //returns the map
         int row(){ return ROW; } //returns the number of rows
         int col(){ return COL; } // returns the number of columbs
         int blo_wid(){ return BLO_WID; } // returns the width in pixels of each block
@@ -47,7 +47,7 @@ class Map{
         const int COL;
         const int BLO_WID; // 25 by 25 size blocks
         
-        vector<vector<Block*> > grid; //vector of the grid
+        std::vector<std::vector<Block*> > grid; //vector of the grid
 };
 
 #endif /* Map_hpp */

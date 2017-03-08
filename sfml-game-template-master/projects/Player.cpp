@@ -1,3 +1,11 @@
+﻿//
+//  Player.cpp
+//  SampleGame
+//
+//  Created by Deepti 1/27/2017
+//  Edited by Ye Eun Myung on 03/03/2017
+//  Copyright © 2017 De Anza College Developers' Guild. All rights reserved.
+//
 #include "Player.h"
 
 MainPlayer::MainPlayer()

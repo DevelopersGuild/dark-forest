@@ -3,6 +3,7 @@
 //  SampleGame
 //
 //  Created by Margaret Patrick on 1/26/17.
+//  Edited by Ye Eun Myung on 03/08/2017
 //  Copyright © 2017 De Anza College Developers' Guild. All rights reserved.
 //
 
@@ -19,7 +20,6 @@
 #include <SFML/Graphics.hpp>
 #include "ResourcePath.h"
 
-using namespace sf;
 class Block{
     public:
          /* INIT
@@ -27,12 +27,12 @@ class Block{
          * eventually the goal will be to add unique features to certain blocks, perhaps subclassing this
          */
          Block(); //default constructor
-         Block(Texture* texture, float x, float y, int wid, bool passable); //custom constructor
+         Block(sf::Texture* texture, float x, float y, int wid, bool passable); //custom constructor
 
          /* ACSESSOR METHODS
          * these are used to find the values of a particular block
          */
-         Sprite sprite() { return *_sprite; }
+         sf::Sprite sprite() { return *_sprite; }
          float xPos() { return _xPos; }
          float yPos() { return _yPos; }
          bool passable() { return _passable; }
@@ -46,9 +46,9 @@ class Block{
          sf::Sprite sprite(texture);
          */
 
-         Texture* _texture; // the texture of the sprite
+         sf::Texture* _texture; // the texture of the sprite
 
-         Sprite* _sprite; // the sprite itself
+         sf::Sprite* _sprite; // the sprite itself
 
          bool _passable; // true if a character is able to walk on it
          float _xPos; // the x position of the block within the grid
