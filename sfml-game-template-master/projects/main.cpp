@@ -7,6 +7,9 @@
 #include "Block.h"
 #include "Player.h"
 enum typeName { MAIN, HOW_TO, INTRO_DIALOGUE, PLAY, VICTORY, GAME_OVER, CREDIT } gameState;
+const int B_ROW = 25;
+const int B_COL = 20;
+const int B_SIZE = 32;
 
 void eventFun(sf::RenderWindow &window, sf::Event &event);
 void Dialogue1(sf::RenderWindow &window, sf::Event &event, IntroDialogue &introDia, typeName &gameState);
@@ -16,12 +19,12 @@ void CreditMode(sf::RenderWindow& window, sf::Event &event, typeName &gameState,
 
 int main()
 {
-    
-     sf::RenderWindow window(sf::VideoMode(800, 640), "SFML Works!");
+
+     sf::RenderWindow window(sf::VideoMode((B_ROW * B_SIZE), (B_COL * B_SIZE)), "SFML Works!");
      //window.setVerticalSyncEnabled(true); // On WinPC this is good speed but too fast on Mac OS
      window.setFramerateLimit(30); 
      IntroDialogue introDia;
-     Map map(20, 25, 32);
+     Map map(B_COL, B_ROW, B_SIZE);
      map.checker();
      std::vector<std::vector<Block*>> block = map.layout();
      MainPlayer mainplayer;
@@ -105,7 +108,7 @@ void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer ma
           if(!mainplayer.isLive())
                gameState = GAME_OVER;
           if (mainplayer.isGoal())
-               gameState = GAME_OVER;//VICTORY;
+               gameState = VICTORY;
 
           mainplayer.draw(window);
           window.display();
