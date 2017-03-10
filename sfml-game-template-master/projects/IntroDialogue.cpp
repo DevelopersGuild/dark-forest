@@ -7,7 +7,6 @@
 //
 #include "IntroDialogue.h"
 
-
 IntroDialogue::IntroDialogue()
 {
      texture.loadFromFile(resourcePath() + "assets/sky.jpg");
@@ -17,11 +16,11 @@ IntroDialogue::IntroDialogue()
      font.loadFromFile(resourcePath() + "assets/BASKVILL.TTF");
      text1.setFont(font);
      text1.setCharacterSize(30);
-     text1.setColor(sf::Color::Cyan);
+     text1.setColor(sf::Color(250, 218, 94));
      text1.setPosition(20.0, 600.0);
      text2.setFont(font);
      text2.setCharacterSize(30);
-     text2.setColor(sf::Color::Cyan);
+     text2.setColor(sf::Color(250, 218, 94));
      text2.setPosition(20.0, 550.0);
 
 }

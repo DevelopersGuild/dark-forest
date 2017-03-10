@@ -24,6 +24,7 @@ private:
      sf::Sprite mainCh;
      bool move;
      bool live; //only one life (for now)
+     bool goal;
 public:
 
     // Make a constructor that sets the position of the character
@@ -31,9 +32,11 @@ public:
     
     //updates the position after moving a specific direction
      void MovePlayer(std::vector<std::vector<Block*>> block);
+     void checkGoal(std::vector<std::vector<Block*>> block);
      //return true if the main character moved
      bool isMove(){ return move; }
      bool isLive() { return live; }
+     bool isGoal() { return goal; }
      void draw(sf::RenderWindow &window) { window.draw(mainCh); }
       
 };
