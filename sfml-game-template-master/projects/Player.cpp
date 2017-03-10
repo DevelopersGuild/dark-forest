@@ -14,6 +14,7 @@ MainPlayer::MainPlayer()
      mainCh.setTexture(texture);
      mainCh.setPosition(0,608);
      live = true;
+     goal = false;
 }
 
 void MainPlayer::MovePlayer(std::vector<std::vector<Block*>> block)
@@ -96,5 +97,15 @@ void MainPlayer::MovePlayer(std::vector<std::vector<Block*>> block)
                }
           }//end for
      }//end for
+}
+
+void MainPlayer::checkGoal(std::vector<std::vector<Block*>> block)
+{
+     int last = block[0].size() - 1;
+     
+     if (mainCh.getPosition().x == block[0][last]->xPos() && mainCh.getPosition().y == block[0][last]->yPos())
+     {
+          goal = true;
+     }
 }
 
