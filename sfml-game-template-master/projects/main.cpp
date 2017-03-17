@@ -6,6 +6,7 @@
 #include "map.h"
 #include "Block.h"
 #include "Player.h"
+#include "mainScreen.h"
 enum typeName { MAIN, HOW_TO, INTRO_DIALOGUE, PLAY, VICTORY, GAME_OVER, CREDIT } gameState;
 const int B_ROW = 25;
 const int B_COL = 20;
@@ -19,6 +20,10 @@ void CreditMode(sf::RenderWindow& window, sf::Event &event, typeName &gameState,
 
 int main()
 {
+
+	MainScreen mainscreen;
+	if (mainscreen.getDecision() == false)
+		return 0;
 
      sf::RenderWindow window(sf::VideoMode((B_ROW * B_SIZE), (B_COL * B_SIZE)), "SFML Works!");
      //window.setVerticalSyncEnabled(true); // On WinPC this is good speed but too fast on Mac OS
