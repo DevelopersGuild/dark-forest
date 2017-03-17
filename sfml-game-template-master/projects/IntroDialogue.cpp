@@ -1,5 +1,11 @@
+﻿//
+//  IntroDialogue.cpp
+//  SampleGame
+//
+//  Created by Ye Eun Myung on 2/10/2017
+//  Copyright © 2017 De Anza College Developers' Guild. All rights reserved.
+//
 #include "IntroDialogue.h"
-
 
 IntroDialogue::IntroDialogue()
 {
@@ -10,11 +16,11 @@ IntroDialogue::IntroDialogue()
      font.loadFromFile(resourcePath() + "assets/BASKVILL.TTF");
      text1.setFont(font);
      text1.setCharacterSize(30);
-     text1.setColor(sf::Color::Cyan);
+     text1.setColor(sf::Color(250, 218, 94));
      text1.setPosition(20.0, 600.0);
      text2.setFont(font);
      text2.setCharacterSize(30);
-     text2.setColor(sf::Color::Cyan);
+     text2.setColor(sf::Color(250, 218, 94));
      text2.setPosition(20.0, 550.0);
 
 }
