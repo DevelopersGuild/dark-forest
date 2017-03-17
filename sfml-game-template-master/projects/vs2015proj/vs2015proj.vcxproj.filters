@@ -8,6 +8,7 @@
     <ClCompile Include="..\ResourcePathWindows.cpp" />
     <ClCompile Include="..\IntroDialogue.cpp" />
     <ClCompile Include="..\Player.cpp" />
+    <ClCompile Include="..\mainScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Block.h" />
@@ -16,5 +17,6 @@
     <ClInclude Include="..\Overlap.h" />
     <ClInclude Include="..\Player.h" />
     <ClInclude Include="..\ResourcePath.h" />
+    <ClInclude Include="..\mainScreen.h" />
   </ItemGroup>
 </Project>
