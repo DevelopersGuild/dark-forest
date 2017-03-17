@@ -16,6 +16,7 @@
 Block::Block(){
             _xPos = 0;
             _yPos = 0;
+            _xyPosition = sf::Vector2f(0, 0);
             _width = 0;
             
             
@@ -36,6 +37,7 @@ Block::Block(){
 Block::Block(sf::Texture* texture, float x, float y, int wid, bool passable) {
      _xPos = x;
      _yPos = y;
+     _xyPosition = sf::Vector2f(x, y);
      _width = wid;
      _texture = texture;
      _passable = passable;

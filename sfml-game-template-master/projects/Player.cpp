@@ -10,7 +10,7 @@
 
 MainPlayer::MainPlayer()
 {
-     texture.loadFromFile(resourcePath() + "assets/tempChar.png");
+     texture.loadFromFile(resourcePath() + "assets/MainCh.png");
      mainCh.setTexture(texture);
      mainCh.setPosition(0,608);
      live = true;

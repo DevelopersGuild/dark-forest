@@ -6,6 +6,7 @@
 #include "map.h"
 #include "Block.h"
 #include "Player.h"
+#include "Monster.h"
 #include "mainScreen.h"
 enum typeName { MAIN, HOW_TO, INTRO_DIALOGUE, PLAY, VICTORY, GAME_OVER, CREDIT } gameState;
 const int B_ROW = 25;
@@ -14,7 +15,7 @@ const int B_SIZE = 32;
 
 void eventFun(sf::RenderWindow &window, sf::Event &event);
 void Dialogue1(sf::RenderWindow &window, sf::Event &event, IntroDialogue &introDia, typeName &gameState);
-void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer mainplayer, std::vector<std::vector<Block*>> block);
+void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer mainplayer, Monster monster1, std::vector<std::vector<Block*>> block);
 void endMode(sf::RenderWindow& window, sf::Event &event, typeName &gameState, std::string string, sf::Font font);
 void CreditMode(sf::RenderWindow& window, sf::Event &event, typeName &gameState, sf::Font font);
 
@@ -33,11 +34,12 @@ int main()
      map.checker();
      std::vector<std::vector<Block*>> block = map.layout();
      MainPlayer mainplayer;
+     Monster monster1;
 
      sf::Font font;
      font.loadFromFile(resourcePath() + "assets/BASKVILL.TTF");
 
-     gameState = INTRO_DIALOGUE;
+     gameState = PLAY;//INTRO_DIALOGUE;
 
      while (window.isOpen())
      {
@@ -53,7 +55,7 @@ int main()
                Dialogue1(window, event, introDia, gameState);
                break;
           case PLAY:
-               PlayMode(window, event, map, mainplayer, block);
+               PlayMode(window, event, map, mainplayer, monster1, block);
                break;
           case VICTORY:
                endMode(window, event, gameState, "VICTORY!", font);
@@ -93,14 +95,23 @@ void Dialogue1(sf::RenderWindow &window, sf::Event &event, IntroDialogue &introD
      }
 }
 
-void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer mainplayer, std::vector<std::vector<Block*>> block)
+void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer mainplayer, Monster monster1, std::vector<std::vector<Block*>> block)
 {
+     monster1.setInitPosition(block);
+
      while (gameState == PLAY)
      {
           eventFun(window, event);
           window.clear();
           mainplayer.MovePlayer(block);
           mainplayer.checkGoal(block);
+          monster1.findPath(block, mainplayer.getPosition(), mainplayer.isMove());
+
+          std::cout << mainplayer.isMove() << std::endl;
+          if (!mainplayer.isLive())
+               gameState = GAME_OVER;
+          if (mainplayer.isGoal())
+               gameState = VICTORY;
 
           for (int i = map.row() - 1; i >= 0; --i)
           {
@@ -109,13 +120,9 @@ void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer ma
                     window.draw(map.layout()[i][j]->sprite());
                }
           }
-          std::cout << mainplayer.isMove() << std::endl;
-          if(!mainplayer.isLive())
-               gameState = GAME_OVER;
-          if (mainplayer.isGoal())
-               gameState = VICTORY;
-
+ 
           mainplayer.draw(window);
+          monster1.draw(window);
           window.display();
      }
 }
