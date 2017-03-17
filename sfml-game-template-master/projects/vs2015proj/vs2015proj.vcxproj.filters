@@ -8,7 +8,11 @@
     <ClCompile Include="..\ResourcePathWindows.cpp" />
     <ClCompile Include="..\IntroDialogue.cpp" />
     <ClCompile Include="..\Player.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="..\Monster.cpp" />
+=======
+    <ClCompile Include="..\mainScreen.cpp" />
+>>>>>>> refs/remotes/DevelopersGuild/master
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Block.h" />
@@ -17,6 +21,10 @@
     <ClInclude Include="..\Overlap.h" />
     <ClInclude Include="..\Player.h" />
     <ClInclude Include="..\ResourcePath.h" />
+<<<<<<< HEAD
     <ClInclude Include="..\Monster.h" />
+=======
+    <ClInclude Include="..\mainScreen.h" />
+>>>>>>> refs/remotes/DevelopersGuild/master
   </ItemGroup>
 </Project>

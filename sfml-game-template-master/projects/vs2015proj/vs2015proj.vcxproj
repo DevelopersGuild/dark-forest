@@ -148,6 +148,7 @@
     <ClCompile Include="..\Block.cpp" />
     <ClCompile Include="..\IntroDialogue.cpp" />
     <ClCompile Include="..\main.cpp" />
+    <ClCompile Include="..\mainScreen.cpp" />
     <ClCompile Include="..\Map.cpp" />
     <ClCompile Include="..\Monster.cpp" />
     <ClCompile Include="..\Overlap.cpp" />
@@ -157,6 +158,7 @@
   <ItemGroup>
     <ClInclude Include="..\Block.h" />
     <ClInclude Include="..\IntroDialogue.h" />
+    <ClInclude Include="..\mainScreen.h" />
     <ClInclude Include="..\Map.h" />
     <ClInclude Include="..\Monster.h" />
     <ClInclude Include="..\Overlap.h" />
