@@ -35,6 +35,7 @@ class Block{
          sf::Sprite sprite() { return *_sprite; }
          float xPos() { return _xPos; }
          float yPos() { return _yPos; }
+         sf::Vector2f xyPos() { return _xyPosition; }
          bool passable() { return _passable; }
          // END ACCESSOR METHODS
         
@@ -53,6 +54,7 @@ class Block{
          bool _passable; // true if a character is able to walk on it
          float _xPos; // the x position of the block within the grid
          float _yPos; // the y pos of the block within the grid
+         sf::Vector2f _xyPosition;
          float _width; // the pixle width and height of the block
 
 };

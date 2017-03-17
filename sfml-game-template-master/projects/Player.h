@@ -11,7 +11,6 @@
 
 #include <SFML/Graphics.hpp>
 #include "ResourcePath.h"
-#include "Walls.h"
 #include "Block.h"
 #include <string>
 #include <iostream>
@@ -33,6 +32,7 @@ public:
     //updates the position after moving a specific direction
      void MovePlayer(std::vector<std::vector<Block*>> block);
      void checkGoal(std::vector<std::vector<Block*>> block);
+     sf::Vector2f getPosition() { return mainCh.getPosition(); }
      //return true if the main character moved
      bool isMove(){ return move; }
      bool isLive() { return live; }
