@@ -11,7 +11,7 @@ IntroDialogue::IntroDialogue()
 {
      texture.loadFromFile(resourcePath() + "assets/sky.jpg");
      campfireS.setTexture(texture);
-     campfireS.setScale(1.6, 2.0);
+     campfireS.setScale(1.6, 2);
      txt.open(resourcePath() + "assets/StartDia.txt");
      font.loadFromFile(resourcePath() + "assets/BASKVILL.TTF");
      text1.setFont(font);
@@ -50,7 +50,7 @@ void IntroDialogue::readDialogue(sf::RenderWindow &window)
                text1.setString(dialogue1); //store current string
           }
      }
-     
+
      printDialogue(window);
 
      wasPressed = isPressed;
