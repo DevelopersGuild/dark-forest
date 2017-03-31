@@ -8,14 +8,16 @@
 #include "Player.h"
 #include "Monster.h"
 #include "mainScreen.h"
+#include "randomMonster.h"
+
 enum typeName { MAIN, HOW_TO, INTRO_DIALOGUE, PLAY, VICTORY, GAME_OVER, CREDIT } gameState;
-const int B_ROW = 25;
-const int B_COL = 20;
+const int B_ROW = 20;
+const int B_COL = 15;
 const int B_SIZE = 32;
 
 void eventFun(sf::RenderWindow &window, sf::Event &event);
 void Dialogue1(sf::RenderWindow &window, sf::Event &event, IntroDialogue &introDia, typeName &gameState);
-void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer mainplayer, Monster monster1, std::vector<std::vector<Block*>> block);
+void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer mainplayer, Monster monster1, RandomMonster *randomMonster, std::vector<std::vector<Block*>> block);
 void endMode(sf::RenderWindow& window, sf::Event &event, typeName &gameState, std::string string, sf::Font font);
 void CreditMode(sf::RenderWindow& window, sf::Event &event, typeName &gameState, sf::Font font);
 
@@ -35,11 +37,12 @@ int main()
      std::vector<std::vector<Block*>> block = map.layout();
      MainPlayer mainplayer;
      Monster monster1;
+	 RandomMonster randomMonster;
 
      sf::Font font;
      font.loadFromFile(resourcePath() + "assets/BASKVILL.TTF");
 
-     gameState = PLAY;//INTRO_DIALOGUE;
+     gameState = INTRO_DIALOGUE;
 
      while (window.isOpen())
      {
@@ -55,7 +58,7 @@ int main()
                Dialogue1(window, event, introDia, gameState);
                break;
           case PLAY:
-               PlayMode(window, event, map, mainplayer, monster1, block);
+               PlayMode(window, event, map, mainplayer, monster1, &randomMonster, block);
                break;
           case VICTORY:
                endMode(window, event, gameState, "VICTORY!", font);
@@ -95,16 +98,20 @@ void Dialogue1(sf::RenderWindow &window, sf::Event &event, IntroDialogue &introD
      }
 }
 
-void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer mainplayer, Monster monster1, std::vector<std::vector<Block*>> block)
+void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer mainplayer, Monster monster1, RandomMonster *randomMonster, std::vector<std::vector<Block*>> block)
 {
      monster1.setInitPosition(block);
+	 randomMonster->playAgain();
 
      while (gameState == PLAY)
      {
           eventFun(window, event);
           window.clear();
           mainplayer.MovePlayer(block);
+		  if (mainplayer.isMove())
+			  randomMonster->moveMonster(block);
           mainplayer.checkGoal(block);
+		  mainplayer.checkLive(randomMonster->getPos(), monster1.getPos());
           monster1.findPath(block, mainplayer.getPosition(), mainplayer.isMove());
 
           std::cout << mainplayer.isMove() << std::endl;
@@ -120,6 +127,7 @@ void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer ma
                     window.draw(map.layout()[i][j]->sprite());
                }
           }
+		  randomMonster->draw(window);
  
           mainplayer.draw(window);
           monster1.draw(window);
@@ -176,17 +184,17 @@ void CreditMode(sf::RenderWindow& window, sf::Event &event, typeName &gameState,
 
 
      sf::Text title("Dark Forest", font, 99);
-     title.setPosition(180, 50);
+     title.setPosition(90, 50);
      title.setColor(sf::Color(250, 218, 94));
 
      sf::Text prompt("Developers: ", font, 32);
-     prompt.setPosition(120, 180);
+     prompt.setPosition(40, 180);
      prompt.setColor(sf::Color(250, 218, 94));
 
      sf::Text names("Ye-Eun Myung            Maggie Patrick\n"
                     "Deepti Raghuvaran      Rathna Kashyap\n"
                     "Shreyas Ketkar            Roshini Malempati\n", font, 32);
-     names.setPosition(120, 240);
+     names.setPosition(40, 240);
      names.setColor(sf::Color(250, 218, 94));
 
 

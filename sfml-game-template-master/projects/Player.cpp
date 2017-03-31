@@ -12,7 +12,7 @@ MainPlayer::MainPlayer()
 {
      texture.loadFromFile(resourcePath() + "assets/MainCh.png");
      mainCh.setTexture(texture);
-     mainCh.setPosition(0,608);
+     mainCh.setPosition(0,448);
      live = true;
      goal = false;
 }
@@ -97,6 +97,10 @@ void MainPlayer::MovePlayer(std::vector<std::vector<Block*>> block)
                }
           }//end for
      }//end for
+}
+
+void MainPlayer::checkLive(sf::Vector2f randomMonsterPos, sf::Vector2f monster1pos) {
+	live = randomMonsterPos != mainCh.getPosition() && monster1pos != mainCh.getPosition();
 }
 
 void MainPlayer::checkGoal(std::vector<std::vector<Block*>> block)

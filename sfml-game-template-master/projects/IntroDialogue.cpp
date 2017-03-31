@@ -17,7 +17,7 @@ IntroDialogue::IntroDialogue()
      text1.setFont(font);
      text1.setCharacterSize(30);
      text1.setColor(sf::Color(250, 218, 94));
-     text1.setPosition(20.0, 600.0);
+     text1.setPosition(20.0, 400.0);
      text2.setFont(font);
      text2.setCharacterSize(30);
      text2.setColor(sf::Color(250, 218, 94));

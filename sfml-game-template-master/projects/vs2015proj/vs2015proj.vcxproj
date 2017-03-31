@@ -104,6 +104,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\shreyas\Documents\GitHub\fork0\dark-forest\sfml-game-template-master\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -153,6 +154,7 @@
     <ClCompile Include="..\Monster.cpp" />
     <ClCompile Include="..\Overlap.cpp" />
     <ClCompile Include="..\Player.cpp" />
+    <ClCompile Include="..\randomMonster.cpp" />
     <ClCompile Include="..\ResourcePathWindows.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +165,7 @@
     <ClInclude Include="..\Monster.h" />
     <ClInclude Include="..\Overlap.h" />
     <ClInclude Include="..\Player.h" />
+    <ClInclude Include="..\randomMonster.h" />
     <ClInclude Include="..\ResourcePath.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
