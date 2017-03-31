@@ -109,12 +109,12 @@ void Monster::findPath(std::vector<std::vector<Block*>> block, sf::Vector2f main
                          }
                          //if monster is below a row
                          if (rowPos < i){
-                              if (!goLeft || !goRight)
-                              {
-                                   moveOrder(block, 3, i, j); //down
-                                   if (isMove) goto endNestedFor;
+                              //if (!goLeft || !goRight)
+                              //{
+                              //     moveOrder(block, 3, i, j); //down
+                              //     if (isMove) goto endNestedFor;
 
-                              }
+                              //}
                               if ((i - 1) >= 0 && goUp){
                                    moveOrder(block, 4, i, j); // up
                                    if (isMove) goto endNestedFor;
@@ -147,7 +147,7 @@ void Monster::findPath(std::vector<std::vector<Block*>> block, sf::Vector2f main
                          }
                          //if the monster is on the right side the main character
                          if (colPos < j ){
-                              if ((j - 1) >= 0 && goLeft) {//positive number
+                              if ((j - 1) >= 0){//&& goLeft) {//positive number
                                    moveOrder(block, 2, i, j); //move left first
                                    if (isMove) {
                                         goLeft = true;
@@ -180,17 +180,17 @@ void Monster::findPath(std::vector<std::vector<Block*>> block, sf::Vector2f main
                                         goto endNestedFor;
                                    }
                               }
-                              if (rowPos == i || !goLeft) {
-                                   moveOrder(block, 3, i, j); //down
-                                   std::cout << "!!!" << std::endl;
-                                   if (isMove) goto endNestedFor;
+                              //if (rowPos == i || !goLeft) {
+                              //     moveOrder(block, 3, i, j); //down
+                              //     std::cout << "!!!" << std::endl;
+                              //     if (isMove) goto endNestedFor;
 
-                              }
+                              //}
 
                          }
                          //if the monster is on the left side the main character
                          if (colPos > j){
-                              if ((j + 1) < block[i].size() && goRight){
+                              if ((j + 1) < block[i].size()){// && goRight){
                                    moveOrder(block, 1, i, j); //right
                                    if (isMove) goto endNestedFor;
                               }
@@ -219,12 +219,12 @@ void Monster::findPath(std::vector<std::vector<Block*>> block, sf::Vector2f main
                                         goto endNestedFor;
                                    }
                               }
-                              if (rowPos == i || !goRight) {
-                                   moveOrder(block, 3, i, j); //down
-                                   std::cout << "!!!" << std::endl;
-                                   if (isMove) goto endNestedFor;
+                              //if (rowPos == i || !goRight) {
+                              //     moveOrder(block, 3, i, j); //down
+                              //     std::cout << "!!!" << std::endl;
+                              //     if (isMove) goto endNestedFor;
 
-                              }
+                              //}
                          }
                          goto endNestedFor;
                     }//end if (block[i][j]->xPos() == monster.getPosition().x && block[i][j]->yPos() == monster.getPosition().y)

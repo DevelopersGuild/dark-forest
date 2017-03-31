@@ -40,7 +40,7 @@ int main()
      std::vector<std::vector<Block*>> block = map.layout();
      MainPlayer mainplayer;
      Monster monster1;
-	 RandomMonster randomMonster;
+	RandomMonster randomMonster;
 
      sf::Font font;
      font.loadFromFile(resourcePath() + "assets/BASKVILL.TTF");
@@ -167,7 +167,7 @@ void endMode(sf::RenderWindow& window, sf::Event &event, typeName &gameState, st
      sf::Texture backgroundTexture;
      backgroundTexture.loadFromFile(resourcePath() + "assets/sky.jpg");
      sf::Sprite backgroundSprite(backgroundTexture);
-     backgroundSprite.setScale(1.6, 2.0);
+     backgroundSprite.setScale(1.28, 2.07);
 
      while (gameState == GAME_OVER || gameState == VICTORY)
      {
@@ -216,7 +216,7 @@ void CreditMode(sf::RenderWindow& window, sf::Event &event, typeName &gameState,
      sf::Texture backgroundTexture;
      backgroundTexture.loadFromFile(resourcePath() + "assets/sky.jpg");
      sf::Sprite backgroundSprite(backgroundTexture);
-     backgroundSprite.setScale(1.6, 2.0);
+     backgroundSprite.setScale(1.28, 2.07);
 
      while (gameState == CREDIT)
      {
