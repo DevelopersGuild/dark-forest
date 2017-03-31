@@ -99,6 +99,10 @@ void MainPlayer::MovePlayer(std::vector<std::vector<Block*>> block)
      }//end for
 }
 
+void MainPlayer::checkLive(sf::Vector2f randomMonsterPos, sf::Vector2f monster1pos) {
+	live = randomMonsterPos != mainCh.getPosition() && monster1pos != mainCh.getPosition();
+}
+
 void MainPlayer::checkGoal(std::vector<std::vector<Block*>> block)
 {
      int last = block[0].size() - 1;

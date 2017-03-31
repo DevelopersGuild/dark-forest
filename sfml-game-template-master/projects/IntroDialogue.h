@@ -30,9 +30,12 @@ private:
 
 public:
      IntroDialogue(); //constructor 
+     void getDialogue(std::string fileName) {
+          txt.open(resourcePath() + fileName);
+     }
      void readDialogue(sf::RenderWindow &window); //opens the folder and starts reading 
      void printDialogue(sf::RenderWindow &window); //draws the text
-     bool endDia = false; //flag for end of the dialogue
+     bool finishDia = false; //flag for end of the dialogue
 
 };
 #endif

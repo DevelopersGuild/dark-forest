@@ -32,6 +32,7 @@ public:
     //updates the position after moving a specific direction
      void MovePlayer(std::vector<std::vector<Block*>> block);
      void checkGoal(std::vector<std::vector<Block*>> block);
+	 void checkLive(sf::Vector2f randomMonsterPos, sf::Vector2f monster1pos);
      sf::Vector2f getPosition() { return mainCh.getPosition(); }
      //return true if the main character moved
      bool isMove(){ return move; }
