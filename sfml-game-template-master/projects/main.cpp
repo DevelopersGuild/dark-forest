@@ -9,8 +9,8 @@
 #include "Monster.h"
 #include "mainScreen.h"
 enum typeName { MAIN, HOW_TO, INTRO_DIALOGUE, PLAY, VICTORY, GAME_OVER, CREDIT } gameState;
-const int B_ROW = 25;
-const int B_COL = 20;
+const int B_ROW = 20;
+const int B_COL = 15;
 const int B_SIZE = 32;
 
 void eventFun(sf::RenderWindow &window, sf::Event &event);

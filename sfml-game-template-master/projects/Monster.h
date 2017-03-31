@@ -24,6 +24,10 @@ private:
      sf::Sprite monster;
      std::vector<std::vector<Block*>> boolean;
      bool isMove = false;
+     bool goDown = true;
+     bool goUp = true;
+     bool goLeft = true;
+     bool goRight = true;
 
 public:
      Monster();
