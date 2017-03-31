@@ -11,8 +11,7 @@ IntroDialogue::IntroDialogue()
 {
      texture.loadFromFile(resourcePath() + "assets/sky.jpg");
      campfireS.setTexture(texture);
-     campfireS.setScale(1.6, 2.0);
-     txt.open(resourcePath() + "assets/StartDia.txt");
+     campfireS.setScale(1.28, 2.07);
      font.loadFromFile(resourcePath() + "assets/BASKVILL.TTF");
      text1.setFont(font);
      text1.setCharacterSize(30);
@@ -41,7 +40,7 @@ void IntroDialogue::readDialogue(sf::RenderWindow &window)
           text2.setString(text1.getString()); //store previous string
           if (!getline(txt, dialogue1))
           {
-               endDia = true;
+               finishDia = true;
                text2.setString("");
                text1.setString("");
           }

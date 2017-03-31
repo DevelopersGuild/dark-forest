@@ -10,13 +10,13 @@
 #include "mainScreen.h"
 #include "randomMonster.h"
 
-enum typeName { MAIN, HOW_TO, INTRO_DIALOGUE, PLAY, VICTORY, GAME_OVER, CREDIT } gameState;
+enum typeName { MAIN, HOW_TO, INTRO_DIALOGUE, PLAY, END_DIALOGUE, VICTORY, GAME_OVER, CREDIT } gameState;
 const int B_ROW = 20;
 const int B_COL = 15;
 const int B_SIZE = 32;
 
 void eventFun(sf::RenderWindow &window, sf::Event &event);
-void Dialogue1(sf::RenderWindow &window, sf::Event &event, IntroDialogue &introDia, typeName &gameState);
+void Dialogue1(sf::RenderWindow &window, sf::Event &event, IntroDialogue &introDia, typeName &gameState, bool flag);
 void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer mainplayer, Monster monster1, RandomMonster *randomMonster, std::vector<std::vector<Block*>> block);
 void endMode(sf::RenderWindow& window, sf::Event &event, typeName &gameState, std::string string, sf::Font font);
 void CreditMode(sf::RenderWindow& window, sf::Event &event, typeName &gameState, sf::Font font);
@@ -32,12 +32,15 @@ int main()
      //window.setVerticalSyncEnabled(true); // On WinPC this is good speed but too fast on Mac OS
      window.setFramerateLimit(30); 
      IntroDialogue introDia;
+     introDia.getDialogue("assets/StartDia.txt");
+     IntroDialogue endDia;
+     endDia.getDialogue("assets/EndDia.txt");
      Map map(B_COL, B_ROW, B_SIZE);
      map.checker();
      std::vector<std::vector<Block*>> block = map.layout();
      MainPlayer mainplayer;
      Monster monster1;
-	 RandomMonster randomMonster;
+	RandomMonster randomMonster;
 
      sf::Font font;
      font.loadFromFile(resourcePath() + "assets/BASKVILL.TTF");
@@ -55,10 +58,13 @@ int main()
           //case MAIN: break;
           //case HOW_TO: break;
           case INTRO_DIALOGUE:
-               Dialogue1(window, event, introDia, gameState);
+               Dialogue1(window, event, introDia, gameState, false);
                break;
           case PLAY:
                PlayMode(window, event, map, mainplayer, monster1, &randomMonster, block);
+               break;
+          case END_DIALOGUE:
+               Dialogue1(window, event, endDia, gameState, true);
                break;
           case VICTORY:
                endMode(window, event, gameState, "VICTORY!", font);
@@ -85,15 +91,19 @@ void eventFun(sf::RenderWindow &window, sf::Event &event)
      }
 }
 
-void Dialogue1(sf::RenderWindow &window, sf::Event &event, IntroDialogue &introDia, typeName &gameState)
+void Dialogue1(sf::RenderWindow &window, sf::Event &event, IntroDialogue &introDia, typeName &gameState, bool flag)
 {
-     while (gameState == INTRO_DIALOGUE)
+     while (gameState == INTRO_DIALOGUE ||gameState == END_DIALOGUE)
      {
           eventFun(window, event);
           introDia.readDialogue(window);
-          if (introDia.endDia)
+          if (introDia.finishDia && !flag)
           {
                gameState = PLAY;
+          }
+          if (introDia.finishDia && flag)
+          {
+               gameState = VICTORY;
           }
      }
 }
@@ -118,7 +128,7 @@ void PlayMode(sf::RenderWindow &window, sf::Event &event, Map map, MainPlayer ma
           if (!mainplayer.isLive())
                gameState = GAME_OVER;
           if (mainplayer.isGoal())
-               gameState = VICTORY;
+               gameState = END_DIALOGUE;
 
           for (int i = map.row() - 1; i >= 0; --i)
           {
@@ -157,7 +167,7 @@ void endMode(sf::RenderWindow& window, sf::Event &event, typeName &gameState, st
      sf::Texture backgroundTexture;
      backgroundTexture.loadFromFile(resourcePath() + "assets/sky.jpg");
      sf::Sprite backgroundSprite(backgroundTexture);
-     backgroundSprite.setScale(1.6, 2.0);
+     backgroundSprite.setScale(1.28, 2.07);
 
      while (gameState == GAME_OVER || gameState == VICTORY)
      {
@@ -206,7 +216,7 @@ void CreditMode(sf::RenderWindow& window, sf::Event &event, typeName &gameState,
      sf::Texture backgroundTexture;
      backgroundTexture.loadFromFile(resourcePath() + "assets/sky.jpg");
      sf::Sprite backgroundSprite(backgroundTexture);
-     backgroundSprite.setScale(1.6, 2.0);
+     backgroundSprite.setScale(1.28, 2.07);
 
      while (gameState == CREDIT)
      {

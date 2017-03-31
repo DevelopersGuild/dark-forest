@@ -8,6 +8,8 @@ class MainScreen
 private:
 	sf::Font defaultFont;
 	void fontConfig();
+     sf::Texture texture;
+     sf::Sprite background;
 	sf::Text introText;
 	sf::Text continueDecisionText;
 	sf::Text closeDecisionText;
