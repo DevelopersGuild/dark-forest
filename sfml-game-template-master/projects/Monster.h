@@ -32,5 +32,6 @@ public:
      void findPath(std::vector<std::vector<Block*>> block, sf::Vector2f mainChPos, bool isMainChMove);
      void moveOrder(std::vector<std::vector<Block*>> block, int num, int i, int j);
      void draw(sf::RenderWindow &window) { window.draw(monster); }
+	 sf::Vector2f getPos() { return monster.getPosition(); };
 };
 #endif

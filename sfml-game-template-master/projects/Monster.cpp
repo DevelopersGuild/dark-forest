@@ -9,12 +9,12 @@ Monster::Monster()
 void Monster::setInitPosition(std::vector<std::vector<Block*>> block)
 {
      srand((unsigned int)time(0));
-     int xPos = rand() % (19);
-     int yPos = rand() % (24);
+     int xPos = rand() % (14);
+     int yPos = rand() % (19);
      while (!block[xPos][yPos]->passable())
      {
-          xPos = rand() % (19);
-          yPos = rand() % (24);
+          xPos = rand() % (14);
+          yPos = rand() % (19);
      }
      sf::Vector2f position(block[xPos][yPos]->xPos(), block[xPos][yPos]->yPos());
      monster.setPosition(position); //RANDOM inside the map tile
